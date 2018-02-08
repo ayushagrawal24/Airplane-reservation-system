@@ -77,6 +77,7 @@ void status();
 void pay(int pos);
 void confirmation(int pos);
 void search();
+void front_page();
 
 
 //Definitions
@@ -120,16 +121,16 @@ void preset_vals()
 	flight[0].seats=150;
 	flight[0].etdh=1200;
 	flight[0].etah=1400;
-	flight[0].etd.day=6;
-	flight[0].etd.month=9;
+	flight[0].etd.day=1;
+	flight[0].etd.month=2;
 	flight[0].etd.year=2018;
 
 	flight[1].price=25000;
 	flight[1].seats=150;
 	flight[1].etdh=1100;
 	flight[1].etah=1500;
-	flight[1].etd.day=6;
-	flight[1].etd.month=9;
+	flight[1].etd.day=1;
+	flight[1].etd.month=2;
 	flight[1].etd.year=2018;
 
 	flight[2].price=27000;
@@ -144,27 +145,27 @@ void preset_vals()
 	flight[3].seats=180;
 	flight[3].etdh=2000;
 	flight[3].etah=2350;
-	flight[3].etd.day=6;
-	flight[3].etd.month=9;
+	flight[3].etd.day=1;
+	flight[3].etd.month=2;
 	flight[3].etd.year=2018;
 
 	flight[4].price=20000;
 	flight[4].seats=150;
 	flight[4].etdh=1200;
 	flight[4].etah=1400;
-	flight[4].etd.day=6;
-	flight[4].etd.month=9;
+	flight[4].etd.day=1;
+	flight[4].etd.month=2;
 	flight[4].etd.year=2018;
 
 	strcpy(flight[0].al,"Emirates");
 	strcpy(flight[0].src,"blr");
 	strcpy(flight[0].dst,"dxb");
-	strcpy(flight[0].num,"em469");
+	strcpy(flight[0].num,"em449");
 
 	strcpy(flight[1].al,"Emirates");
 	strcpy(flight[1].src,"dxb");
 	strcpy(flight[1].dst,"gnv");
-	strcpy(flight[1].num,"em369");
+	strcpy(flight[1].num,"em364");
 
 	strcpy(flight[2].al,"Air France");
 	strcpy(flight[2].src,"blr");
@@ -180,6 +181,26 @@ void preset_vals()
 	strcpy(flight[4].src,"blr");
 	strcpy(flight[4].dst,"dxb");
 	strcpy(flight[4].num,"lu287");
+}
+
+//display welcome screen
+void front_page()
+{
+	cout<<"\n_______________________________________________________________________________________________________________________";
+	cout<<"\n|                                                                                                                     |";
+	cout<<"\n|                                                                                                                     |";
+	cout<<"\n|                                     ___       __  .______           _______.                                        |";
+	cout<<"\n|                                    /   \\     |  | |   _  \\         /       |                                        |";
+	cout<<"\n|                                   /  ^  \\    |  | |  |_)  |       |   (----`                                        |";
+	cout<<"\n|                                  /  /_\\  \\   |  | |      /         \\   \\                                            |";
+	cout<<"\n|                                 /  _____  \\  |  | |  |\\  \\----..----)   |                                           |";
+	cout<<"\n|                                /__/     \\__\\ |__| | _| `._____||_______/                                            |";
+	cout<<"\n|                                                                                                                     |";
+	cout<<"\n|                                                                                                                     |";
+	cout<<"\n|                                         Press Any key to start!                                                     |";
+	cout<<"\n|                                                                                                                     |";
+	cout<<"\n|_____________________________________________________________________________________________________________________|";
+	getch();
 }
 
 
@@ -606,13 +627,13 @@ void admin()
 int main()
 {
 	preset_vals();
-
+	front_page();
 	char userName[20];
 	char pass[20];
-	int loginAttempt = 0, i, flag = 0;
+	int loginAttempt = 0, i, flag = 1;
 
 
-	while (loginAttempt < 5 && flag == 0)
+	while (loginAttempt < 5 && flag == 1)
 	{
 		system("cls");
 
@@ -645,7 +666,7 @@ int main()
 			}
 		}
 
-		if(flag == 0)
+		if(i==10)
 		{
 			cout << "\n\nInvalid username or password";
 			getch();
